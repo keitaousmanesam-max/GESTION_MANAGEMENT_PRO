@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.StockController">
+
+    <!-- ================= TITRE + ALERTE ================= -->
+    <top>
+        <VBox alignment="CENTER" spacing="5">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Gestion du Stock"
+                   style="-fx-font-size:18px; -fx-font-weight:bold;"/>
+
+            <!-- ✅ AJOUT PRO : ICÔNE + TEXTE ALERTE -->
+            <Label fx:id="lblAlerteStock"
+                   text="✔ Stock OK"
+                   style="-fx-font-weight:bold; -fx-text-fill:green;"/>
+        </VBox>
+    </top>
+
+    <!-- ================= TABLE STOCK ================= -->
+    <center>
+        <TableView fx:id="tableStock">
+            <columns>
+                <TableColumn fx:id="colProduit" text="Produit" prefWidth="200"/>
+                <TableColumn fx:id="colQuantite" text="Quantité" prefWidth="100"/>
+                <TableColumn fx:id="colSeuil" text="Seuil minimal" prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- ================= AJOUT PRODUIT ================= -->
+    <bottom>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <Label text="Ajouter / Réapprovisionner un produit"
+                   style="-fx-font-weight:bold;" />
+
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="30"/>
+                    <ColumnConstraints percentWidth="70"/>
+                </columnConstraints>
+
+                <Label text="Nom du produit :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtProduit" promptText="Ex: Riz"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Quantité :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtQuantite" promptText="Ex: 100"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Seuil minimal :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="txtSeuil" promptText="Ex: 10"
+                           GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="10">
+                <Button text="Ajouter produit"
+                        onAction="#ajouterProduitStock"
+                        style="-fx-background-color:#2ecc71; -fx-text-fill:white;"/>
+
+                <Button text="Réapprovisionner"
+                        onAction="#reapprovisionnerStock"
+                        style="-fx-background-color:#3498db; -fx-text-fill:white;"/>
+            </HBox>
+
+        </VBox>
+    </bottom>
+
+</BorderPane>

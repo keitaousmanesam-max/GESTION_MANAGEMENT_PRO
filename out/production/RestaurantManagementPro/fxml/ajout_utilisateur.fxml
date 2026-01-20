@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.AjoutUtilisateurController"
+            prefWidth="400"
+            prefHeight="300">
+
+    <center>
+        <GridPane hgap="10" vgap="10" style="-fx-padding:20;">
+
+            <Label text="Nom :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtNom" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <Label text="Prénom :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtPrenom" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <Label text="Login :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtLogin" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <Label text="Mot de passe :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <PasswordField fx:id="txtMotDePasse" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+            <Label text="Rôle :" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="comboRole" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        </GridPane>
+    </center>
+
+    <bottom>
+        <HBox spacing="10" alignment="CENTER_RIGHT" style="-fx-padding:15;">
+            <Button text="Enregistrer" onAction="#handleEnregistrer"/>
+            <Button text="Annuler" onAction="#handleAnnuler"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

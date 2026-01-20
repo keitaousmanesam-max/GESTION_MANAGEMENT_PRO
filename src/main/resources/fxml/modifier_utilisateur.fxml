@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.restaurant.controller.ModifierUtilisateurController"
+      spacing="14"
+      styleClass="dialog-root page-animate"
+      style="-fx-padding:20;">
+
+    <!-- ================= TITRE ================= -->
+    <Label text="✏️ Modifier un utilisateur"
+           styleClass="dialog-title"/>
+
+    <!-- ================= FORMULAIRE ================= -->
+    <GridPane hgap="12" vgap="12"
+              styleClass="dialog-form">
+
+        <Label text="Nom"
+               styleClass="form-label"
+               GridPane.rowIndex="0"
+               GridPane.columnIndex="0"/>
+
+        <TextField fx:id="nomField"
+                   promptText="Nom de l'utilisateur"
+                   GridPane.rowIndex="0"
+                   GridPane.columnIndex="1"/>
+
+        <Label text="Prénom"
+               styleClass="form-label"
+               GridPane.rowIndex="1"
+               GridPane.columnIndex="0"/>
+
+        <TextField fx:id="prenomField"
+                   promptText="Prénom"
+                   GridPane.rowIndex="1"
+                   GridPane.columnIndex="1"/>
+
+        <Label text="Login"
+               styleClass="form-label"
+               GridPane.rowIndex="2"
+               GridPane.columnIndex="0"/>
+
+        <TextField fx:id="loginField"
+                   promptText="Identifiant de connexion"
+                   GridPane.rowIndex="2"
+                   GridPane.columnIndex="1"/>
+
+        <!-- 🔐 Mot de passe optionnel -->
+        <Label text="Nouveau mot de passe"
+               styleClass="form-label"
+               GridPane.rowIndex="3"
+               GridPane.columnIndex="0"/>
+
+        <PasswordField fx:id="mdpField"
+                       promptText="Laisser vide pour conserver l'ancien"
+                       GridPane.rowIndex="3"
+                       GridPane.columnIndex="1"/>
+
+        <Label text="Rôle"
+               styleClass="form-label"
+               GridPane.rowIndex="4"
+               GridPane.columnIndex="0"/>
+
+        <ComboBox fx:id="roleCombo"
+                  promptText="Sélectionner un rôle"
+                  GridPane.rowIndex="4"
+                  GridPane.columnIndex="1"/>
+
+        <!-- 🔐 MESSAGE PRO : DERNIER ADMIN -->
+        <Label fx:id="lblAvertissement"
+               GridPane.rowIndex="5"
+               GridPane.columnIndex="1"
+               wrapText="true"
+               visible="false"
+               style="
+                    -fx-text-fill: #b91c1c;
+                    -fx-font-size: 12;
+                    -fx-font-style: italic;
+               "/>
+
+        <!-- Colonnes -->
+        <columnConstraints>
+            <ColumnConstraints prefWidth="140"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+    </GridPane>
+
+    <!-- ================= ACTIONS ================= -->
+    <HBox spacing="12"
+          alignment="CENTER_RIGHT"
+          styleClass="dialog-actions">
+
+        <Button text="Annuler"
+                styleClass="btn-secondary"
+                onAction="#handleAnnuler"/>
+
+        <Button text="Enregistrer"
+                styleClass="btn-primary"
+                onAction="#handleEnregistrer"/>
+    </HBox>
+
+</VBox>

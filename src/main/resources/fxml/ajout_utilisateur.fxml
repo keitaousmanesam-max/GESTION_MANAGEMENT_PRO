@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.AjoutUtilisateurController"
+            prefWidth="400"
+            prefHeight="300"
+            styleClass="dialog-root fixed-window page-animate">
+
+    <!-- ================= HEADER ================= -->
+    <top>
+        <HBox spacing="10"
+              alignment="CENTER_LEFT"
+              styleClass="dialog-header">
+            <Label text="➕ Ajouter un utilisateur"
+                   styleClass="dialog-title"/>
+        </HBox>
+    </top>
+
+    <!-- ================= FORM ================= -->
+    <center>
+        <GridPane hgap="12"
+                  vgap="12"
+                  styleClass="dialog-form">
+
+            <Label text="Nom"
+                   styleClass="form-label"
+                   GridPane.rowIndex="0"
+                   GridPane.columnIndex="0"/>
+
+            <TextField fx:id="txtNom"
+                       promptText="Nom de l'utilisateur"
+                       GridPane.rowIndex="0"
+                       GridPane.columnIndex="1"/>
+
+            <Label text="Prénom"
+                   styleClass="form-label"
+                   GridPane.rowIndex="1"
+                   GridPane.columnIndex="0"/>
+
+            <TextField fx:id="txtPrenom"
+                       promptText="Prénom"
+                       GridPane.rowIndex="1"
+                       GridPane.columnIndex="1"/>
+
+            <Label text="Login"
+                   styleClass="form-label"
+                   GridPane.rowIndex="2"
+                   GridPane.columnIndex="0"/>
+
+            <TextField fx:id="txtLogin"
+                       promptText="Identifiant de connexion"
+                       GridPane.rowIndex="2"
+                       GridPane.columnIndex="1"/>
+
+            <Label text="Mot de passe"
+                   styleClass="form-label"
+                   GridPane.rowIndex="3"
+                   GridPane.columnIndex="0"/>
+
+            <PasswordField fx:id="txtMotDePasse"
+                           promptText="Mot de passe sécurisé"
+                           GridPane.rowIndex="3"
+                           GridPane.columnIndex="1"/>
+
+            <Label text="Rôle"
+                   styleClass="form-label"
+                   GridPane.rowIndex="4"
+                   GridPane.columnIndex="0"/>
+
+            <ComboBox fx:id="comboRole"
+                      promptText="Sélectionner un rôle"
+                      GridPane.rowIndex="4"
+                      GridPane.columnIndex="1"/>
+
+            <!-- Alignement colonnes -->
+            <columnConstraints>
+                <ColumnConstraints prefWidth="120"/>
+                <ColumnConstraints hgrow="ALWAYS"/>
+            </columnConstraints>
+
+        </GridPane>
+    </center>
+
+    <!-- ================= ACTIONS ================= -->
+    <bottom>
+        <HBox spacing="12"
+              alignment="CENTER_RIGHT"
+              styleClass="dialog-actions">
+
+            <Button text="Annuler"
+                    styleClass="btn-secondary"
+                    onAction="#handleAnnuler"/>
+
+            <Button text="Enregistrer"
+                    styleClass="btn-primary"
+                    onAction="#handleEnregistrer"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

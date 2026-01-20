@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.AjoutPlatController"
+            prefWidth="400"
+            prefHeight="320">
+
+    <!-- ===== TITRE ===== -->
+    <top>
+        <Label text="Ajouter un plat"
+               style="-fx-font-size:18; -fx-font-weight:bold;"
+               BorderPane.alignment="CENTER">
+
+            <BorderPane.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </BorderPane.margin>
+
+        </Label>
+    </top>
+
+    <!-- ===== FORMULAIRE ===== -->
+    <center>
+        <GridPane hgap="10" vgap="10">
+
+            <!-- PADDING CORRECT -->
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- NOM -->
+            <Label text="Nom du plat :" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtNom" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+            <!-- CATÉGORIE -->
+            <Label text="Catégorie :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtCategorie" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+            <!-- PRIX -->
+            <Label text="Prix :" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+            <TextField fx:id="txtPrix" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+            <!-- DISPONIBLE -->
+            <Label text="Disponible :" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <CheckBox fx:id="checkDisponible"
+                      text="Oui"
+                      selected="true"
+                      GridPane.rowIndex="3"
+                      GridPane.columnIndex="1"/>
+
+        </GridPane>
+    </center>
+
+    <!-- ===== BOUTONS ===== -->
+    <bottom>
+        <HBox spacing="10"
+              alignment="CENTER_RIGHT">
+
+            <BorderPane.margin>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </BorderPane.margin>
+
+            <Button text="Enregistrer"
+                    onAction="#handleEnregistrer"/>
+
+            <Button text="Annuler"
+                    onAction="#handleAnnuler"/>
+
+        </HBox>
+    </bottom>
+
+</BorderPane>

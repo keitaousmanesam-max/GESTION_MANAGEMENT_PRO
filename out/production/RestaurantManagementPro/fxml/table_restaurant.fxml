@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.TableRestaurantController"
+            styleClass="page-root">
+
+    <!-- ===== TOP ===== -->
+    <top>
+        <HBox spacing="10"
+              alignment="CENTER_LEFT"
+              styleClass="page-header">
+
+            <Label text="🍽 Gestion des Tables"
+                   styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <!-- ===== CENTER ===== -->
+    <center>
+        <TableView fx:id="tableTables"
+                   styleClass="table-pro">
+
+            <columns>
+                <TableColumn fx:id="colNumero"
+                             text="Numéro de table"
+                             prefWidth="220"/>
+                <TableColumn fx:id="colEtat"
+                             text="État"
+                             prefWidth="180"/>
+            </columns>
+
+        </TableView>
+    </center>
+
+    <!-- ===== BOTTOM ===== -->
+    <bottom>
+        <HBox fx:id="actionBar"
+              spacing="12"
+              alignment="CENTER_RIGHT"
+              styleClass="page-actions">
+
+            <Button text="➕ Ajouter"
+                    styleClass="btn-primary"
+                    onAction="#handleAjouter"/>
+
+            <Button text="✏ Modifier"
+                    styleClass="btn-secondary"
+                    onAction="#handleModifier"/>
+
+            <Button text="🔓 Libérer"
+                    styleClass="btn-success"
+                    onAction="#handleLiberer"/>
+
+            <Button text="🔒 Occuper"
+                    styleClass="btn-danger"
+                    onAction="#handleOccuper"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

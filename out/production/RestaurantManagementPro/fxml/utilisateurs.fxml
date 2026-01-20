@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.UtilisateurController"
+            styleClass="page-root">
+
+    <!-- ================= HEADER ================= -->
+    <top>
+        <HBox spacing="10"
+              alignment="CENTER_LEFT"
+              styleClass="page-header">
+            <Label text="👥 Gestion des utilisateurs"
+                   styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <!-- ================= TABLE ================= -->
+    <center>
+        <TableView fx:id="tableUtilisateurs"
+                   styleClass="table-pro">
+
+            <columns>
+                <TableColumn fx:id="colId"
+                             text="ID"
+                             prefWidth="60"/>
+                <TableColumn fx:id="colNom"
+                             text="Nom"
+                             prefWidth="150"/>
+                <TableColumn fx:id="colPrenom"
+                             text="Prénom"
+                             prefWidth="150"/>
+                <TableColumn fx:id="colRole"
+                             text="Rôle"
+                             prefWidth="150"/>
+                <TableColumn fx:id="colEtat"
+                             text="État"
+                             prefWidth="120"/>
+            </columns>
+        </TableView>
+    </center>
+
+    <!-- ================= ACTIONS ================= -->
+    <bottom>
+        <HBox fx:id="actionBar"
+              spacing="12"
+              alignment="CENTER_RIGHT"
+              styleClass="page-actions">
+
+            <Button fx:id="btnAjouter"
+                    text="➕ Ajouter"
+                    styleClass="btn-primary"
+                    onAction="#handleAjouter"/>
+
+            <Button fx:id="btnModifier"
+                    text="✏ Modifier"
+                    styleClass="btn-secondary"
+                    onAction="#handleModifier"
+                    disable="true"/>
+
+            <Button fx:id="btnChangerEtat"
+                    text="🔒 Activer / Désactiver"
+                    styleClass="btn-warning"
+                    onAction="#handleChangerEtat"
+                    disable="true"/>
+
+            <!-- 🗑 SUPPRESSION (PROTÉGÉE) -->
+            <Button fx:id="btnSupprimer"
+                    text="🗑 Supprimer"
+                    styleClass="btn-danger"
+                    onAction="#handleSupprimer"
+                    disable="true"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

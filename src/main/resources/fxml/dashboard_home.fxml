@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.restaurant.controller.DashboardHomeController"
+           styleClass="home-root">
+
+    <!-- CONTENEUR CENTRAL -->
+    <VBox alignment="CENTER" spacing="30">
+
+        <!-- TITRE -->
+        <Label text="Tableau de bord"
+               styleClass="home-title"/>
+
+        <!-- GRILLE STATS -->
+        <GridPane hgap="30" vgap="30" alignment="CENTER">
+
+            <!-- UTILISATEURS -->
+            <VBox styleClass="stat-card">
+                <Label text="👤 Utilisateurs"
+                       styleClass="stat-title"/>
+                <Label fx:id="nbUtilisateurs"
+                       styleClass="stat-value"/>
+            </VBox>
+
+            <!-- PLATS -->
+            <VBox GridPane.columnIndex="1"
+                  styleClass="stat-card">
+                <Label text="🍽️ Plats"
+                       styleClass="stat-title"/>
+                <Label fx:id="nbPlats"
+                       styleClass="stat-value"/>
+            </VBox>
+
+            <!-- COMMANDES -->
+            <VBox GridPane.rowIndex="1"
+                  styleClass="stat-card">
+                <Label text="🧾 Commandes"
+                       styleClass="stat-title"/>
+                <Label fx:id="nbCommandes"
+                       styleClass="stat-value"/>
+            </VBox>
+
+            <!-- CHIFFRE D’AFFAIRES -->
+            <VBox GridPane.rowIndex="1"
+                  GridPane.columnIndex="1"
+                  styleClass="stat-card highlight">
+                <Label text="💰 Chiffre d’affaires"
+                       styleClass="stat-title"/>
+                <Label fx:id="chiffreAffaires"
+                       styleClass="stat-value"/>
+            </VBox>
+
+        </GridPane>
+
+    </VBox>
+</StackPane>

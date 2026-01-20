@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.FactureController"
+            styleClass="content-root">
+
+    <!-- ================= TOP BAR ================= -->
+    <top>
+        <HBox spacing="10"
+              alignment="CENTER_LEFT"
+              styleClass="section-header">
+            <Label text="💳 Gestion des Factures"
+                   styleClass="section-title"/>
+        </HBox>
+    </top>
+
+    <!-- ================= CENTER ================= -->
+    <center>
+        <VBox fx:id="contentCard"
+              spacing="18"
+              VBox.vgrow="ALWAYS"
+              styleClass="content-card">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- ================= FORMULAIRE ================= -->
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="ID Commande :" styleClass="field-label"/>
+
+                <TextField fx:id="txtIdCommande"
+                           promptText="Ex : 12"
+                           prefWidth="150"/>
+
+                <Button text="Créer Facture"
+                        styleClass="btn-primary"
+                        onAction="#creerFacture"/>
+            </HBox>
+
+            <!-- ================= TOTAL ================= -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Total :" styleClass="field-label"/>
+                <Label fx:id="lblTotal"
+                       styleClass="total-label"/>
+            </HBox>
+
+            <!-- ================= ACTIONS ================= -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+
+                <!-- 🔥 AJOUT : PAIEMENT -->
+                <Button text="💳 Payer"
+                        styleClass="btn-success"
+                        onAction="#ouvrirPaiement"/>
+
+                <Button text="🖨 Imprimer"
+                        styleClass="btn-secondary"
+                        onAction="#imprimerFacture"/>
+
+                <Button text="📄 Export PDF"
+                        styleClass="btn-secondary"
+                        onAction="#exporterFacture"/>
+
+                <CheckBox fx:id="chkFacturesPayees"
+                          text="Afficher factures payées"
+                          onAction="#filtrerFactures"/>
+            </HBox>
+
+            <Separator/>
+
+            <!-- ================= TABLE FACTURES ================= -->
+            <Label text="Liste des factures"
+                   styleClass="section-subtitle"/>
+
+            <TableView fx:id="tableFacture"
+                       VBox.vgrow="ALWAYS"
+                       onMouseClicked="#afficherDetails"
+                       styleClass="table-view-pro">
+
+                <columns>
+                    <TableColumn fx:id="colIdFacture"
+                                 text="N° Facture"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="colIdCommande"
+                                 text="Commande"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="colTotal"
+                                 text="Total"
+                                 prefWidth="120"/>
+
+                    <TableColumn fx:id="colDate"
+                                 text="Date"
+                                 prefWidth="200"/>
+                </columns>
+            </TableView>
+
+            <!-- ================= DÉTAIL FACTURE ================= -->
+            <Label text="Détail de la facture"
+                   styleClass="section-subtitle"/>
+
+            <TableView fx:id="tableDetailFacture"
+                       prefHeight="200"
+                       styleClass="table-view-pro">
+
+                <columns>
+                    <TableColumn fx:id="colPlat"
+                                 text="Plat"
+                                 prefWidth="220"/>
+
+                    <TableColumn fx:id="colQuantite"
+                                 text="Qté"
+                                 prefWidth="60"/>
+
+                    <TableColumn fx:id="colPrix"
+                                 text="Prix"
+                                 prefWidth="100"/>
+
+                    <TableColumn fx:id="colSousTotal"
+                                 text="Sous-total"
+                                 prefWidth="120"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

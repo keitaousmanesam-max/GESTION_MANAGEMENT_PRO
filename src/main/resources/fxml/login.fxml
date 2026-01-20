@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/21"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.restaurant.controller.LoginController">
+
+    <!-- ================= IMAGE DE FOND ================= -->
+    <ImageView fx:id="backgroundImage"
+               preserveRatio="false">
+        <image>
+            <Image url="@/images/login_bg.jpg"/>
+        </image>
+    </ImageView>
+
+    <!-- ================= CONTENEUR CENTRAL ================= -->
+    <VBox alignment="CENTER" spacing="30">
+
+        <!-- TITRE -->
+        <Label text="Système de gestion de restaurant"
+               style="
+                    -fx-font-size: 36px;
+                    -fx-font-weight: bold;
+                    -fx-text-fill: white;
+                    -fx-effect: dropshadow(gaussian, black, 18, 0.6, 0, 4);
+               "/>
+
+        <!-- ================= FORMULAIRE ================= -->
+        <VBox fx:id="loginBox"
+              alignment="CENTER"
+              spacing="16"
+              maxWidth="360"
+              style="
+                    -fx-padding:40;
+                    -fx-background-color: rgba(0,0,0,0.65);
+                    -fx-background-radius: 22;
+               ">
+
+            <Label text="Connexion au système"
+                   style="
+                        -fx-font-size:22;
+                        -fx-font-weight:bold;
+                        -fx-text-fill:white;
+                   "/>
+
+            <!-- LOGIN -->
+            <TextField fx:id="loginField"
+                       promptText="Login"
+                       prefWidth="260"/>
+
+            <!-- MOT DE PASSE + ŒIL -->
+            <HBox spacing="6" alignment="CENTER">
+
+                <PasswordField fx:id="passwordField"
+                               promptText="Mot de passe"
+                               prefWidth="230"/>
+
+                <TextField fx:id="passwordVisibleField"
+                           promptText="Mot de passe"
+                           prefWidth="230"
+                           visible="false"
+                           managed="false"/>
+
+                <Button text="👁"
+                        onAction="#togglePassword"
+                        focusTraversable="false"
+                        style="
+                            -fx-background-color: transparent;
+                            -fx-font-size: 15px;
+                            -fx-text-fill: white;
+                        "/>
+            </HBox>
+
+            <!-- MESSAGE ERREUR -->
+            <Label fx:id="messageLabel"
+                   wrapText="true"
+                   alignment="CENTER"
+                   style="
+                        -fx-text-fill: #ff6b6b;
+                        -fx-font-size: 13px;
+                   "/>
+
+            <!-- BOUTON -->
+            <Button text="Se connecter"
+                    prefWidth="260"
+                    onAction="#handleLogin"
+                    style="
+                        -fx-background-color: #2563eb;
+                        -fx-text-fill: white;
+                        -fx-font-size: 14px;
+                        -fx-font-weight: bold;
+                        -fx-background-radius: 8;
+                   "/>
+        </VBox>
+
+    </VBox>
+
+</StackPane>

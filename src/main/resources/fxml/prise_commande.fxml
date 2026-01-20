@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.PriseCommandeController"
+            styleClass="root-app">
+
+    <!-- ================= HEADER ================= -->
+    <top>
+        <HBox alignment="CENTER"
+              spacing="10"
+              styleClass="header-bar">
+            <Label text="GESTION DES COMMANDES"
+                   styleClass="header-title"/>
+        </HBox>
+    </top>
+
+    <!-- ================= CONTENU ================= -->
+    <center>
+        <HBox spacing="20">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- ===== TABLES ===== -->
+            <VBox spacing="12"
+                  prefWidth="260"
+                  styleClass="card">
+
+                <Label text="Tables"
+                       styleClass="section-title"/>
+
+                <TableView fx:id="tableViewTables"
+                           VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colIdTable"
+                                     text="ID"
+                                     prefWidth="60"/>
+                        <TableColumn fx:id="colNomTable"
+                                     text="Numéro"
+                                     prefWidth="160"/>
+                    </columns>
+                </TableView>
+            </VBox>
+
+            <!-- ===== COMMANDE ===== -->
+            <VBox spacing="12"
+                  prefWidth="380"
+                  styleClass="card">
+
+                <Label text="Commande en cours"
+                       styleClass="section-title"/>
+
+                <TableView fx:id="tableViewCommande"
+                           VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colNomPlatCommande"
+                                     text="Plat"
+                                     prefWidth="220"/>
+                        <TableColumn fx:id="colQuantiteCommande"
+                                     text="Quantité"
+                                     prefWidth="120"/>
+                    </columns>
+                </TableView>
+
+                <HBox spacing="12"
+                      alignment="CENTER">
+
+                    <Button text="🗑 Supprimer"
+                            onAction="#handleSupprimerPlat"
+                            styleClass="btn-danger"/>
+
+                    <Button text="✔ Servir"
+                            onAction="#handleServirCommande"
+                            styleClass="btn-success"/>
+                </HBox>
+            </VBox>
+
+            <!-- ===== MENUS & PLATS ===== -->
+            <VBox spacing="12"
+                  prefWidth="320"
+                  styleClass="card">
+
+                <Label text="Menus"
+                       styleClass="section-title"/>
+
+                <ComboBox fx:id="comboMenus"
+                          promptText="Choisir un menu"
+                          prefWidth="250"/>
+
+                <Label text="Plats disponibles"
+                       styleClass="section-title"/>
+
+                <TableView fx:id="tableViewPlats"
+                           VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colNomPlat"
+                                     text="Nom"
+                                     prefWidth="170"/>
+                        <TableColumn fx:id="colPrixPlat"
+                                     text="Prix"
+                                     prefWidth="120"/>
+                    </columns>
+                </TableView>
+
+                <Label text="Quantité"
+                       styleClass="section-title"/>
+
+                <Spinner fx:id="spinnerQuantite"
+                         prefWidth="120"
+                         editable="true"/>
+
+                <Button text="➕ Ajouter à la commande"
+                        onAction="#handleAjouterPlat"
+                        styleClass="btn-primary"/>
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.restaurant.controller.DashboardController"
+            styleClass="root">
+
+    <!-- ================= TOP BAR ================= -->
+    <top>
+        <HBox spacing="10" styleClass="top-bar">
+            <Label fx:id="userLabel"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Déconnexion"
+                    onAction="#handleLogout"/>
+        </HBox>
+    </top>
+
+    <!-- ================= MENU GAUCHE ================= -->
+    <left>
+        <VBox spacing="12" styleClass="menu">
+
+            <!-- ===== ADMINISTRATION ===== -->
+            <Label text="ADMINISTRATION"
+                   styleClass="menu-title"/>
+
+            <Button fx:id="btnUtilisateurs"
+                    text="Gestion des utilisateurs"
+                    onAction="#showUtilisateurs"/>
+
+            <Button fx:id="btnMenus"
+                    text="Menus &amp; Plats"
+                    onAction="#showMenus"/>
+
+            <Button fx:id="btnTables"
+                    text="Tables du restaurant"
+                    onAction="#showTables"/>
+
+            <Button fx:id="btnStock"
+                    text="Gestion du stock"
+                    onAction="#showStock"/>
+
+            <Separator/>
+
+            <!-- ===== OPÉRATIONS ===== -->
+            <Label text="OPÉRATIONS"
+                   styleClass="menu-title"/>
+
+            <Button fx:id="btnCommandes"
+                    text="Prise de commandes"
+                    onAction="#showCommandes"/>
+
+            <Button fx:id="btnCommandesServies"
+                    text="Commandes servies"
+                    onAction="#showCommandesServies"/>
+
+            <Button fx:id="btnHistoriqueCommandes"
+                    text="Historique des commandes"
+                    onAction="#showHistoriqueCommandes"/>
+
+            <Button fx:id="btnFacturation"
+                    text="Facturation &amp; Paiement"
+                    onAction="#showFacturation"/>
+
+            <Separator/>
+
+            <!-- ===== ANALYSE ===== -->
+            <Label text="ANALYSE"
+                   styleClass="menu-title"/>
+
+            <Button fx:id="btnRapports"
+                    text="Rapports"
+                    onAction="#showRapports"/>
+
+            <Button fx:id="btnStatistiques"
+                    text="Statistiques"
+                    onAction="#showStatistiques"/>
+
+            <Separator/>
+
+            <!-- ===== SÉCURITÉ / AUDIT (NOUVEAU) ===== -->
+            <Label text="SÉCURITÉ"
+                   styleClass="menu-title"/>
+
+            <Button fx:id="btnJournal"
+                    text="Journal des activités"
+                    onAction="#showJournal"/>
+
+        </VBox>
+    </left>
+
+    <!-- ================= CONTENU CENTRAL ================= -->
+    <center>
+        <StackPane fx:id="contentPane"
+                   styleClass="content"/>
+    </center>
+
+</BorderPane>
